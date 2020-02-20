@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 
 #endregion
 
-namespace MySimpleBlockchainWithPoW.Blockchain
+namespace MySimpleBlockchainComplete.Blockchain
 {
     public class Helper
     {

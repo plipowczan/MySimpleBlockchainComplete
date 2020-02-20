@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 #endregion
 
-namespace MySimpleBlockchainWithPoW.Blockchain
+namespace MySimpleBlockchainComplete.Blockchain
 {
     public class WebServer
     {

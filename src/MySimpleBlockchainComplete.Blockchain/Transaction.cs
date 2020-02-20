@@ -4,7 +4,7 @@ using System;
 
 #endregion
 
-namespace MySimpleBlockchainWithPoW.Blockchain
+namespace MySimpleBlockchainComplete.Blockchain
 {
     [Serializable]
     public class Transaction

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace MySimpleBlockchainWithPoW.Blockchain
+namespace MySimpleBlockchainComplete.Blockchain
 {
     [Serializable]
     public class Block

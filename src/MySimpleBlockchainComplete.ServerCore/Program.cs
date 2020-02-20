@@ -2,11 +2,11 @@
 
 using System;
 using Microsoft.Extensions.Configuration;
-using MySimpleBlockchainWithPoW.Blockchain;
+using MySimpleBlockchainComplete.Blockchain;
 
 #endregion
 
-namespace MySimpleBlockchainWithPoW.ServerCore
+namespace MySimpleBlockchainComplete.ServerCore
 {
     class Program
     {

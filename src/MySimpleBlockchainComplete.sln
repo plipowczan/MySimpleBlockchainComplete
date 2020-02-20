@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySimpleBlockchainWithPoW.ServerCore", "MySimpleBlockchainWithPoW.ServerCore\MySimpleBlockchainWithPoW.ServerCore.csproj", "{23B77494-BD5F-47E1-BFDC-BB710E4B0F24}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySimpleBlockchainComplete.ServerCore", "MySimpleBlockchainComplete.ServerCore\MySimpleBlockchainComplete.ServerCore.csproj", "{23B77494-BD5F-47E1-BFDC-BB710E4B0F24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySimpleBlockchainWithPoW.Blockchain", "MySimpleBlockchainWithPoW.Blockchain\MySimpleBlockchainWithPoW.Blockchain.csproj", "{A200655C-5A19-4ABE-B8D7-A907FB622EBE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySimpleBlockchainComplete.Blockchain", "MySimpleBlockchainComplete.Blockchain\MySimpleBlockchainComplete.Blockchain.csproj", "{A200655C-5A19-4ABE-B8D7-A907FB622EBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
