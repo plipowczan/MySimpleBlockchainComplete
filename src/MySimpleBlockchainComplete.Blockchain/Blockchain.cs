@@ -6,7 +6,17 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
+using System.Text;
+using MurrayGrant.ReadablePassphrase;
+using MurrayGrant.ReadablePassphrase.Dictionaries;
+using MurrayGrant.ReadablePassphrase.PhraseDescription;
+using MurrayGrant.ReadablePassphrase.Random;
 using Newtonsoft.Json;
+using Org.BouncyCastle.Crypto;
+using Org.BouncyCastle.Crypto.Generators;
+using Org.BouncyCastle.Crypto.Prng;
+using Org.BouncyCastle.Security;
 
 #endregion
 
@@ -36,11 +46,44 @@ namespace MySimpleBlockchainComplete.Blockchain
 
         #endregion
 
+        static IEnumerable<Clause> NonGrammaticalClause(int count)
+        {
+            for (int i = 0; i < count; i++)
+                yield return new AnyWordClause();
+        }
+
         #region Constructors
 
         //ctor
         public Blockchain()
         {
+            //var rsa = new RSACryptoServiceProvider(2048, new CspParameters());
+            //string publicKey1 = Helper.MakePem(rsa.ExportSubjectPublicKeyInfo());
+            //string privateKey1 = Helper.MakePem(rsa.ExportRSAPrivateKey());
+
+            //Console.WriteLine($"Wygenerowano hasło na podstawie którego zostanie klucz prywatny {privateKey1} i publiczny {publicKey1}");
+
+            //generowanie hasła
+            //var generator = new ReadablePassphraseGenerator();
+            //var defaultDict = Default.Load();
+            //generator.SetDictionary(defaultDict);
+            //var phrase = generator.Generate(phraseDescription: NonGrammaticalClause(10));
+            //Console.WriteLine($"Wygenerowano hasło na podstawie którego zostanie klucz prywatny i publiczny {phrase}");
+            var phrase = "Akron desires fiddler are halting thrived the Pakistani Havana weights optics golden";
+
+            //generowanie klucza prywatnego
+            var privateKey = Helper.GetSha256HashByteArray(phrase);
+            Console.WriteLine($"Wygenerowano klucz prywatny {Helper.ConvertByteArrayToHexString(privateKey)}");
+
+            //generowanie klucza publicznego
+            var publicKey = Helper.CreatePublicKeyFromPrivate(privateKey);
+            Console.WriteLine($"Wygenerowano klucz publiczny {Helper.ConvertByteArrayToHexString(publicKey)}");
+
+            //generowanie adresu
+            var address = Helper.GetSha1HashString(publicKey);
+            Console.WriteLine($"Wygenerowano adres {address}");
+
+
             this.NodeId = Guid.NewGuid().ToString().Replace("-", "");
             this.CreateNewBlock(100, string.Empty);
         }
@@ -143,14 +186,14 @@ namespace MySimpleBlockchainComplete.Blockchain
         private bool IsValidNonce(int lastNonce, int nonce, string previousHash)
         {
             string guess = $"{lastNonce}{nonce}{previousHash}";
-            string result = Helper.GetSha256Hash(guess);
+            string result = Helper.GetSha256HashString(guess);
             return result.StartsWith("000");
         }
 
         private string GetHash(Block block)
         {
             string blockText = JsonConvert.SerializeObject(block);
-            return Helper.GetSha256Hash(blockText);
+            return Helper.GetSha256HashString(blockText);
         }
 
         #endregion

@@ -5,10 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BouncyCastle.NetCore" Version="1.8.5" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.2" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="ReadablePassphrase" Version="1.2.0" />
+    <PackageReference Include="ReadablePassphrase.Core" Version="1.2.0" />
+    <PackageReference Include="ReadablePassphrase.DefaultDictionary" Version="1.2.0" />
+    <PackageReference Include="ReadablePassphrase.Words" Version="1.2.0" />
+    <PackageReference Include="System.Security.Cryptography.Algorithms" Version="4.3.1" />
     <PackageReference Include="TinyWebServer.dll" Version="1.0.1" />
   </ItemGroup>
 
