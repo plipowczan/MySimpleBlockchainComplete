@@ -4,14 +4,13 @@ using System;
 
 #endregion
 
-namespace MySimpleBlockchainComplete.Blockchain
+namespace MySimpleBlockchainComplete.Blockchain;
+
+public class Node
 {
-    public class Node
-    {
-        #region Properties
+    #region Properties
 
-        public Uri Address { get; set; }
+    public Uri Address { get; set; }
 
-        #endregion
-    }
+    #endregion
 }

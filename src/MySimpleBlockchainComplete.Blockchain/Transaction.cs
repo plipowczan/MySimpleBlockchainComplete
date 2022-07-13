@@ -4,19 +4,18 @@ using System;
 
 #endregion
 
-namespace MySimpleBlockchainComplete.Blockchain
+namespace MySimpleBlockchainComplete.Blockchain;
+
+[Serializable]
+public class Transaction
 {
-    [Serializable]
-    public class Transaction
-    {
-        #region Properties
+    #region Properties
 
-        public double Amount { get; set; }
+    public double Amount { get; set; }
 
-        public string From { get; set; }
+    public string From { get; set; }
 
-        public string To { get; set; }
+    public string To { get; set; }
 
-        #endregion
-    }
+    #endregion
 }
