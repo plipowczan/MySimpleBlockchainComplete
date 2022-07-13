@@ -7,6 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 using System.Text;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using Org.BouncyCastle.Asn1.Sec;
 using Org.BouncyCastle.Math;
 
@@ -39,13 +40,9 @@ namespace MySimpleBlockchainComplete.Blockchain
         private static byte[] ObjectToByteArray(object obj)
         {
             if (obj == null)
-                return null;
-            BinaryFormatter bf = new BinaryFormatter();
-            using (MemoryStream ms = new MemoryStream())
-            {
-                bf.Serialize(ms, obj);
-                return ms.ToArray();
-            }
+                return default;
+
+            return Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(obj));
         }
 
         #endregion
@@ -85,7 +82,8 @@ namespace MySimpleBlockchainComplete.Blockchain
 
         public static byte[] GetSha256HashByteArray(object obj)
         {
-            var sha256 = new SHA256Managed();
+
+            var sha256 = SHA256.Create();
 
             // zamiana obiektu na tablicę bajtów
             byte[] bytes = ObjectToByteArray(obj);
@@ -95,7 +93,7 @@ namespace MySimpleBlockchainComplete.Blockchain
 
         public static byte[] GetSha1HashByteArray(object obj)
         {
-            var sha1 = new SHA1Managed();
+            var sha1 = SHA1.Create();
 
             // zamiana obiektu na tablicę bajtów
             byte[] bytes = ObjectToByteArray(obj);
