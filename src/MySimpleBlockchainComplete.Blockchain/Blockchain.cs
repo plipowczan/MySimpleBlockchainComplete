@@ -115,7 +115,6 @@ public class Blockchain
         {
             var url = new Uri(node.Address, "/blockchain");
             var httpClient = new HttpClient();
-            httpClient.BaseAddress = url;
             var response = httpClient.GetAsync(url).Result;
 
             if (response.StatusCode == HttpStatusCode.OK)
